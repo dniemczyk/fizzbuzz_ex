@@ -2,8 +2,16 @@ defmodule FizzBuzzTest do
   use ExUnit.Case, async: true
   doctest FizzBuzz
 
-  test "Default parse creates a 3 elements list" do
-    assert FizzBuzz.parse() == [1, 2, "Fizz"]
+  describe "parse/0" do
+    test "creates a 3 elements list" do
+      assert FizzBuzz.parse() == [1, 2, "Fizz"]
+    end
+  end
+
+  describe "parse/1" do
+    test "creates a list with \"Fizz\" in the list" do
+      assert FizzBuzz.parse(4) == [1, 2, "Fizz", 4]
+    end
   end
 
   describe "FizzBuzz.Fizz/1" do

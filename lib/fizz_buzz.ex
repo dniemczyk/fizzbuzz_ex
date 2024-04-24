@@ -12,8 +12,9 @@ defmodule FizzBuzz do
       [1, 2, "Fizz"]
 
   """
-  def parse(_num \\ 3) do
-    [1, 2, "Fizz"]
+  def parse(num \\ 3) do
+    1..num
+    |> Enum.map(&fizz/1)
   end
 
   @doc """
