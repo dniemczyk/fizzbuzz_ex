@@ -12,7 +12,23 @@ defmodule FizzBuzz do
       [1, 2, "Fizz"]
 
   """
-  def parse(_num \\ 100) do
+  def parse(_num \\ 3) do
     [1, 2, "Fizz"]
+  end
+
+  @doc """
+  Returns the string "Fizz" if the number is divisible by 3. In all
+  other cases returns the input number.
+
+  ## Examples
+
+      iex> FizzBuzz.fizz(3)
+      "Fizz"
+
+      iex> FizzBuzz.fizz(5)
+      5
+  """
+  def fizz(num) do
+    if rem(num, 3) == 0, do: "Fizz", else: num
   end
 end
