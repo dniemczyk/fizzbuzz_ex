@@ -8,13 +8,14 @@ defmodule FizzBuzz do
 
   ## Examples
 
-      iex> FizzBuzz.parse(3)
-      [1, 2, "Fizz"]
+      iex> FizzBuzz.parse(7)
+      [1, 2, "Fizz", 4, "Buzz", "Fizz", 7]
 
   """
   def parse(num \\ 3) do
     1..num
     |> Enum.map(&fizz/1)
+    |> Enum.map(&buzz/1)
   end
 
   @doc """
@@ -45,7 +46,10 @@ defmodule FizzBuzz do
       iex> FizzBuzz.buzz(3)
       3
   """
-  def buzz(num) do
+  def buzz(num) when is_number(num) do
     if rem(num, 5) == 0, do: "Buzz", else: num
+  end
+  def buzz(x) do
+    x
   end
 end

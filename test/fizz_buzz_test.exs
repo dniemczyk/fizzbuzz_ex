@@ -12,6 +12,10 @@ defmodule FizzBuzzTest do
     test "creates a list with \"Fizz\" in the list" do
       assert FizzBuzz.parse(4) == [1, 2, "Fizz", 4]
     end
+
+    test "creates a list with \"Buzz\" in the list" do
+      assert FizzBuzz.parse(5) == [1, 2, "Fizz", 4, "Buzz"]
+    end
   end
 
   describe "FizzBuzz.Fizz/1" do
@@ -39,6 +43,12 @@ defmodule FizzBuzzTest do
       assert FizzBuzz.buzz(5) == "Buzz"
       assert FizzBuzz.buzz(335) == "Buzz"
       assert FizzBuzz.buzz(12345) == "Buzz"
+    end
+
+    test "always returns a string without changing it" do
+      assert FizzBuzz.buzz("Fizz") == "Fizz"
+      assert FizzBuzz.buzz("Buzz") == "Buzz"
+      assert FizzBuzz.buzz("abcd") == "abcd"
     end
   end
 end
