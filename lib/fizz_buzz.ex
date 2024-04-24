@@ -31,4 +31,20 @@ defmodule FizzBuzz do
   def fizz(num) do
     if rem(num, 3) == 0, do: "Fizz", else: num
   end
+
+  @doc """
+  Returns the string "Fizz" if the number is divisible by 3. In all
+  other cases returns the input number.
+
+  ## Examples
+
+      iex> FizzBuzz.buzz(5)
+      "Buzz"
+
+      iex> FizzBuzz.buzz(3)
+      3
+  """
+  def buzz(num) do
+    if rem(num, 5) == 0, do: "Buzz", else: num
+  end
 end

@@ -19,4 +19,18 @@ defmodule FizzBuzzTest do
       assert FizzBuzz.fizz(12345) == "Fizz"
     end
   end
+
+  describe "FizzBuzz.Buzz/1" do
+    test "always returns a number when provided an integer not divisible by 5" do
+      assert FizzBuzz.buzz(3) == 3
+      assert FizzBuzz.buzz(123) == 123
+      assert FizzBuzz.buzz(1234) == 1234
+    end
+
+    test "returns the string \"Buzz\" if provided with an number that is divisible by 5" do
+      assert FizzBuzz.buzz(5) == "Buzz"
+      assert FizzBuzz.buzz(335) == "Buzz"
+      assert FizzBuzz.buzz(12345) == "Buzz"
+    end
+  end
 end
