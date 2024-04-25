@@ -39,6 +39,21 @@ defmodule FizzBuzzTest do
     end
   end
 
+  describe "FizzBuzz.fizz/2" do
+    test "always returns first value if second is not divisible by 3" do
+      assert FizzBuzz.fizz(5, 5) == 5
+      assert FizzBuzz.fizz("Buzz", 10) == "Buzz"
+      assert FizzBuzz.fizz("Fizz", 14) == "Fizz"
+    end
+
+    test "returns the string \"Fizz\" or appends it when second is divisible by 3" do
+      assert FizzBuzz.fizz(3, 3) == "Fizz"
+      assert FizzBuzz.fizz(5, 3) == 5
+      assert FizzBuzz.fizz("Buzz", 33) == "BuzzFizz"
+      assert FizzBuzz.fizz("Fizz", 333) == "FizzFizz"
+    end
+  end
+
   describe "FizzBuzz.buzz/1" do
     test "always returns a number when provided an integer not divisible by 5" do
       assert FizzBuzz.buzz(3) == 3
@@ -56,6 +71,21 @@ defmodule FizzBuzzTest do
       assert FizzBuzz.buzz("Fizz") == "Fizz"
       assert FizzBuzz.buzz("Buzz") == "Buzz"
       assert FizzBuzz.buzz("abcd") == "abcd"
+    end
+  end
+
+  describe "FizzBuzz.buzz/2" do
+    test "always returns first value if second is not divisible by 5" do
+      assert FizzBuzz.buzz(3, 3) == 3
+      assert FizzBuzz.buzz("Fizz", 11) == "Fizz"
+      assert FizzBuzz.buzz("Buzz", 14) == "Buzz"
+    end
+
+    test "returns the string \"Buzz\" or appends it when second is divisible by 5" do
+      assert FizzBuzz.buzz(3, 5) == 3
+      assert FizzBuzz.buzz(5, 5) == "Buzz"
+      assert FizzBuzz.buzz("Buzz", 55) == "BuzzBuzz"
+      assert FizzBuzz.buzz("Fizz", 555) == "FizzBuzz"
     end
   end
 end

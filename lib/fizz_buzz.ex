@@ -18,6 +18,22 @@ defmodule FizzBuzz do
     |> Enum.map(&buzz/1)
   end
 
+  def fizz(num, x) when is_number(num) do
+    if rem(x, 3) == 0 do
+      fizz(num)
+    else
+      num
+    end
+  end
+
+  def fizz(str, x) when is_bitstring(str) do
+    if rem(x, 3) == 0 do
+      str <> "Fizz"
+    else
+      str
+    end
+  end
+
   @doc """
   Returns the string "Fizz" if the number is divisible by 3. In all
   other cases returns the input number.
@@ -30,9 +46,30 @@ defmodule FizzBuzz do
       iex> FizzBuzz.fizz(5)
       5
   """
-  def fizz(num) do
+  def fizz(num) when is_number(num) do
     if rem(num, 3) == 0, do: "Fizz", else: num
   end
+
+  def fizz(x) do
+    x
+  end
+
+  def buzz(num, x) when is_number(num) do
+    if rem(x, 5) == 0 do
+      buzz(num)
+    else
+      num
+    end
+  end
+
+  def buzz(str, x) when is_bitstring(str) do
+    if rem(x, 5) == 0 do
+      str <> "Buzz"
+    else
+      str
+    end
+  end
+
 
   @doc """
   Returns the string "Fizz" if the number is divisible by 3. In all
@@ -49,6 +86,7 @@ defmodule FizzBuzz do
   def buzz(num) when is_number(num) do
     if rem(num, 5) == 0, do: "Buzz", else: num
   end
+
   def buzz(x) do
     x
   end
