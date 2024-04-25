@@ -18,7 +18,7 @@ defmodule FizzBuzzTest do
     end
   end
 
-  describe "FizzBuzz.Fizz/1" do
+  describe "FizzBuzz.fizz/1" do
     test "always returns a number when provided an integer not divisible by 3" do
       assert FizzBuzz.fizz(5) == 5
       assert FizzBuzz.fizz(124) == 124
@@ -32,7 +32,7 @@ defmodule FizzBuzzTest do
     end
   end
 
-  describe "FizzBuzz.Buzz/1" do
+  describe "FizzBuzz.buzz/1" do
     test "always returns a number when provided an integer not divisible by 5" do
       assert FizzBuzz.buzz(3) == 3
       assert FizzBuzz.buzz(123) == 123
