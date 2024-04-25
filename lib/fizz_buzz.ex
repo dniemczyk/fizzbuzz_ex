@@ -79,21 +79,12 @@ defmodule FizzBuzz do
   end
 
   def buzz(num, x) when is_number(num) do
-    if rem(x, 5) == 0 do
-      buzz(num)
-    else
-      num
-    end
+    if rem(x, 5) == 0, do: buzz(num), else: num
   end
 
   def buzz(str, x) when is_bitstring(str) do
-    if rem(x, 5) == 0 do
-      str <> "Buzz"
-    else
-      str
-    end
+    if rem(x, 5) == 0, do: str <> "Buzz", else: str
   end
-
 
   @doc """
   Returns the string "Fizz" if the number is divisible by 3. In all
@@ -106,6 +97,18 @@ defmodule FizzBuzz do
 
       iex> FizzBuzz.buzz(3)
       3
+
+      iex> FizzBuzz.buzz({3, 3})
+      {3, 3}
+
+      iex> FizzBuzz.buzz({5, 5})
+      {"Buzz", 5}
+
+      iex> FizzBuzz.buzz({"Buzz", 3})
+      {"Buzz", 3}
+
+      iex> FizzBuzz.buzz({"Buzz", 5})
+      {"BuzzBuzz", 5}
   """
   def buzz(num) when is_number(num) do
     if rem(num, 5) == 0, do: "Buzz", else: num
