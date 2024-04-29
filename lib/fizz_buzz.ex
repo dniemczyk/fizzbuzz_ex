@@ -3,6 +3,8 @@ defmodule FizzBuzz do
   Documentation for `FizzBuzz`.
   """
 
+  require ModuloToStr
+
   @doc """
   Generate a list based on the provided number.
 
@@ -47,36 +49,7 @@ defmodule FizzBuzz do
       iex> FizzBuzz.fizz({"Buzz", 5})
       {"Buzz", 5}
   """
-  def fizz(num) when is_number(num) do
-    if rem(num, 3) == 0, do: "Fizz", else: num
-  end
-
-  def fizz(x) when is_tuple(x) do
-    first = elem(x, 0)
-    second = elem(x, 1)
-
-    {fizz(first, second), second}
-  end
-
-  def fizz(x) do
-    x
-  end
-
-  def fizz(num, x) when is_number(num) do
-    if rem(x, 3) == 0 do
-      fizz(num)
-    else
-      num
-    end
-  end
-
-  def fizz(str, x) when is_bitstring(str) do
-    if rem(x, 3) == 0 do
-      str <> "Fizz"
-    else
-      str
-    end
-  end
+  ModuloToStr.defn("Fizz", 3)
 
   @doc """
   Returns the string "Buzz" if the number is divisible by 5. In all
@@ -102,27 +75,5 @@ defmodule FizzBuzz do
       iex> FizzBuzz.buzz({"Buzz", 5})
       {"BuzzBuzz", 5}
   """
-  def buzz(num) when is_number(num) do
-    if rem(num, 5) == 0, do: "Buzz", else: num
-  end
-
-  def buzz(x) when is_tuple(x) do
-    first = elem(x, 0)
-    second = elem(x, 1)
-
-    {buzz(first, second), second}
-  end
-
-  def buzz(x) do
-    x
-  end
-
-  def buzz(num, x) when is_number(num) do
-    if rem(x, 5) == 0, do: buzz(num), else: num
-  end
-
-  def buzz(str, x) when is_bitstring(str) do
-    if rem(x, 5) == 0, do: str <> "Buzz", else: str
-  end
-
+  ModuloToStr.defn("Buzz", 5)
 end
