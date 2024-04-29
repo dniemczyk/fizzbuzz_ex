@@ -10,6 +10,19 @@ defmodule ModuloToStr do
     quote do
       import unquote(__MODULE__)
 
+      @doc """
+      Returns the string "#{unquote(name)}" if the number is divisible
+      by #{unquote(modulo)}. In all other cases returns the input
+      number. If provided with a tuple returns for combining the
+      #{unquote(String.downcase(name))} function in a railway style
+      map.
+
+      ## Examples
+
+          iex> FizzBuzz.#{unquote(func_name)}(#{unquote(modulo)})
+          "#{unquote(name)}"
+
+      """
       def unquote(func_name)(num) when is_number(num) do
         if rem(num, unquote(modulo)) == 0, do: unquote(name), else: num
       end
