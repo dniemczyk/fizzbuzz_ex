@@ -22,22 +22,6 @@ defmodule FizzBuzz do
     |> Enum.map(fn x -> elem(x, 0) end)
   end
 
-  def fizz(num, x) when is_number(num) do
-    if rem(x, 3) == 0 do
-      fizz(num)
-    else
-      num
-    end
-  end
-
-  def fizz(str, x) when is_bitstring(str) do
-    if rem(x, 3) == 0 do
-      str <> "Fizz"
-    else
-      str
-    end
-  end
-
   @doc """
   Returns the string "Fizz" if the number is divisible by 3. In all
   other cases returns the input number. If provided with a tuple
@@ -78,16 +62,24 @@ defmodule FizzBuzz do
     x
   end
 
-  def buzz(num, x) when is_number(num) do
-    if rem(x, 5) == 0, do: buzz(num), else: num
+  def fizz(num, x) when is_number(num) do
+    if rem(x, 3) == 0 do
+      fizz(num)
+    else
+      num
+    end
   end
 
-  def buzz(str, x) when is_bitstring(str) do
-    if rem(x, 5) == 0, do: str <> "Buzz", else: str
+  def fizz(str, x) when is_bitstring(str) do
+    if rem(x, 3) == 0 do
+      str <> "Fizz"
+    else
+      str
+    end
   end
 
   @doc """
-  Returns the string "Fizz" if the number is divisible by 3. In all
+  Returns the string "Buzz" if the number is divisible by 5. In all
   other cases returns the input number.
 
   ## Examples
@@ -121,8 +113,16 @@ defmodule FizzBuzz do
     {buzz(first, second), second}
   end
 
-
   def buzz(x) do
     x
   end
+
+  def buzz(num, x) when is_number(num) do
+    if rem(x, 5) == 0, do: buzz(num), else: num
+  end
+
+  def buzz(str, x) when is_bitstring(str) do
+    if rem(x, 5) == 0, do: str <> "Buzz", else: str
+  end
+
 end
